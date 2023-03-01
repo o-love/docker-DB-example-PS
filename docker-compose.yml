@@ -1,0 +1,5 @@
+version: '1'
+networks:
+  ps_network:
+    driver: bridge
+
