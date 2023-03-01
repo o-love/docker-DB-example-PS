@@ -16,11 +16,7 @@ services:
     volumes:
       - ./bd/build_db.sql:/docker-entrypoint-initdb.d/build_db.sql
       - ./bd/fill_db.sql:/docker-entrypoint-initdb.d/fill_db.sql
-      - ps_bdd_vol:/var/lib/postgresql/data
     networks:
       ps_network:
         aliases:
           - bdd
-
-volumes:
-  ps_bdd_vol:
