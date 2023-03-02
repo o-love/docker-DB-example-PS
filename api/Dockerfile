@@ -11,16 +11,8 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 RUN composer self-update
 
 WORKDIR "/application"
-COPY composer.json composer.json
-COPY composer.lock composer.lock
-COPY package.json package.json
-COPY artisan artisan
-COPY ./bootstrap/app.php ./bootstrap/app.php
-COPY ./app/Console/Kernel.php ./app/Console/Kernel.php
-COPY ./app/Exceptions/Handler.php ./app/Exceptions/Handler.php
+COPY . .
 
 RUN composer install
-
-COPY . .
 
 CMD ["php", "artisan", "serve"] 
