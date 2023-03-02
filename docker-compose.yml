@@ -20,3 +20,18 @@ services:
       ps_network:
         aliases:
           - bdd
+  api:
+    build: 
+      context: './api'
+    image: ps-example-api
+    container_name: api
+    restart: always
+    volumes:
+      - api_volume:/application
+    networks:
+      ps_network:
+        aliases:
+          - bapidd
+
+volumes:
+  api_volume:
